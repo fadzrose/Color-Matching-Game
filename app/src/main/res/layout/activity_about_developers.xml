@@ -6,6 +6,21 @@
     android:padding="20dp"
     android:background="#00008B">
 
+    <!-- About the Game -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="At Luminous Labs, we believe in the magic of gaming—where every tap, swipe, and click
+        unlocks a new world of adventure, mystery, and excitement. Our passionate team of dreamers and creators
+        is dedicated to crafting mobile games that captivate the imagination and keep players coming back for more.
+        From mind-bending puzzles to heart-pounding action, we blend artistry with technology to design experiences that
+        are as visually stunning as they are engaging. We don’t just make games; we build universes where players can lose themselves,
+        challenge their skills, and have fun along the way. Driven by innovation and a love for storytelling, Luminous Labs is on a mission
+        to redefine what mobile games can be—creating unforgettable moments that connect, inspire, and spark joy in every corner of the world."
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"/>
+
     <!-- Title Text -->
     <TextView
         android:id="@+id/aboutTitle"
@@ -34,7 +49,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Developer 1: Passionate Android Developer with expertise in mobile gaming apps."
+                android:text="Developer 1: FADZILLAH BINTI ROSLAN."
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 android:layout_marginBottom="10dp"/>
@@ -43,19 +58,36 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Developer 2: Enthusiastic about creating intuitive UIs and clean code."
+                android:text="Developer 2: MASTURINA BINTI ISMADOL."
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
                 android:layout_marginBottom="10dp"/>
 
-            <!-- About the Game -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="This memory game was developed using Android and Java with a focus on fun gameplay and smooth performance."
+                android:text="Developer 3: SITI NUR ANISAH BINTI NASRI."
                 android:textSize="18sp"
                 android:textColor="#FFFFFF"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Developer 4: NURUL IRDINA BINTI MOHD FADZLI."
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Developer 5: NURUL IFFAH HUMAIRA BINTI AZMAN."
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"/>
+
+
 
         </LinearLayout>
     </ScrollView>
@@ -71,3 +103,6 @@
         android:textColor="#FFFFFF"
         android:layout_gravity="center"/>
 </LinearLayout>
+
+
+    
