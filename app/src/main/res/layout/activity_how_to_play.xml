@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#00008B">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/howToPlayTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How to Play"
+        android:textSize="32sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"/>
+
+    <!-- Instructions -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp">
+
+            <!-- Step 1 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. The goal is to match pairs of cards with the same color."
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Step 2 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. There are 16 cards, each with 8 different colors."
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Step 3 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Select one card and try to find its matching pair."
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Step 4 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. If the cards match, they stay open. If not, they flip back after 2 seconds."
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Step 5 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5. Complete the game by matching all pairs. Your time will be recorded!"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Close Button -->
+    <Button
+        android:id="@+id/closeHowToPlayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close"
+        android:textSize="18sp"
+        android:background="@drawable/round_button"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"/>
+</LinearLayout>

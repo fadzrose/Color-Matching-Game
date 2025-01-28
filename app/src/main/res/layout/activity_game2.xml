@@ -7,19 +7,230 @@
     android:padding="16dp"
     tools:context=".GameActivity2">
 
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        layout="@layout/cards"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
 
-    </include>
 
-    <TextView
-        android:id="@+id/point"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:id="@+id/card11"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card11"
+                android:id="@+id/card12"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card12"
+                android:id="@+id/card13"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card13"
+                android:id="@+id/card14"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_below="@+id/card11"
+                android:id="@+id/card21"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card21"
+                android:layout_below="@+id/card12"
+                android:id="@+id/card22"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card22"
+                android:layout_below="@id/card11"
+                android:id="@+id/card23"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card23"
+                android:layout_below="@id/card14"
+                android:id="@+id/card24"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_below="@+id/card21"
+                android:id="@+id/card31"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card31"
+                android:layout_below="@+id/card22"
+                android:id="@+id/card32"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card32"
+                android:layout_below="@id/card21"
+                android:id="@+id/card33"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card33"
+                android:layout_below="@id/card24"
+                android:id="@+id/card34"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_below="@+id/card31"
+                android:id="@+id/card41"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card41"
+                android:layout_below="@+id/card32"
+                android:id="@+id/card42"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card42"
+                android:layout_below="@id/card31"
+                android:id="@+id/card43"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="105dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/card"
+                android:layout_toRightOf="@+id/card43"
+                android:layout_below="@id/card34"
+                android:id="@+id/card44"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/gameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color Match"
+        android:textSize="36sp"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"/>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/ic_play"
+            android:drawablePadding="10dp"
+            android:contentDescription="Play"/>
+
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_reset"
+            android:drawablePadding="10dp"
+            android:contentDescription="Reset"/>
+
+
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_exit"
+            android:drawablePadding="10dp"
+            android:contentDescription="Exit"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/howToPlayButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to Play"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/ic_howplay"
+            android:drawablePadding="10dp"/>
+
+
+        <Button
+            android:id="@+id/aboutDeveloperButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Developer"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/ic_info"
+            android:drawablePadding="10dp"
+            android:layout_marginLeft="20dp"/>
+    </LinearLayout>
 
 </RelativeLayout>

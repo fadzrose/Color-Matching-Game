@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,14 +35,78 @@ public class GameActivity2 extends AppCompatActivity {
     int playerPoints = 0;
     int cardFliped=0;
 
-
+    private Button playButton;
+    private Button resetButton;
+    private Button exitButton;
+    private Button howToPlayButton;
+    private Button aboutDeveloperButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
 
-        pt = (TextView) findViewById(R.id.point);
+        // Initialize buttons
+        playButton = findViewById(R.id.playButton);
+        resetButton = findViewById(R.id.resetButton);
+        exitButton = findViewById(R.id.exitButton);
+        howToPlayButton = findViewById(R.id.howToPlayButton);
+        aboutDeveloperButton = findViewById(R.id.aboutDeveloperButton);
+
+        // Play Button Logic
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logic for starting the game
+                Toast.makeText(GameActivity2.this, "Game Started", Toast.LENGTH_SHORT).show();
+                // Start the GameActivity
+                Intent intent = new Intent(GameActivity2.this, GameActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+        // Reset Button Logic
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logic for resetting the game
+                Toast.makeText(GameActivity2.this, "Game Reset", Toast.LENGTH_SHORT).show();
+                // Reset game state here
+            }
+        });
+
+        // Exit Button Logic
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Logic for exiting the app
+                Toast.makeText(GameActivity2.this, "Exiting Game", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(GameActivity2.this, MainActivity.class);
+                startActivity(intent); // Close the activity and exit the app
+            }
+        });
+
+        // How to Play Button Logic
+        howToPlayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Launch How to Play Activity
+                Intent intent = new Intent(GameActivity2.this, HowToPlayActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // About Developer Button Logic
+        aboutDeveloperButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Launch About Developers Activity
+                Intent intent = new Intent(GameActivity2.this, AboutDevelopersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //pt = (TextView) findViewById(R.id.point);
 
         c11 = (ImageView) findViewById(R.id.card11);
         c12 = (ImageView) findViewById(R.id.card12);
