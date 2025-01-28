@@ -21,4 +21,109 @@
         android:text="PLAY"
         android:id="@+id/play"/>
 
+    
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_game">
+
+    <!-- Game Title -->
+    <TextView
+        android:id="@+id/gameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color Match"
+        android:textSize="36sp"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"/>
+
+    <!-- Timer Display -->
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textSize="32sp"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/gameTitle"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"/>
+
+    <!-- Game Control Buttons -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/timerText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/ic_play"
+            android:drawablePadding="10dp"
+            android:contentDescription="Play"/>
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/round_button"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_reset"
+            android:drawablePadding="10dp"
+            android:contentDescription="Reset"/>
+
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/round_button"
+            android:layout_marginLeft="20dp"
+            android:drawableStart="@drawable/ic_exit"
+            android:drawablePadding="10dp"
+            android:contentDescription="Exit"/>
+    </LinearLayout>
+
+    <!-- Bottom Controls -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/howToPlayButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to Play"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/ic_howplay"
+            android:drawablePadding="10dp"/>
+
+        <Button
+            android:id="@+id/aboutDeveloperButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Developer"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/ic_info"
+            android:drawablePadding="10dp"
+            android:layout_marginLeft="20dp"/>
+    </LinearLayout>
+
+</RelativeLayout>
