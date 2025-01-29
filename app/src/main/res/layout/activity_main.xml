@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#286B74"
+    android:background="@drawable/gradient_bg"
     tools:context=".MainActivity">
 
 
@@ -29,20 +29,9 @@
         android:text="Welcome to Home Activity!"
         android:textSize="24sp"
         android:textStyle="bold" />
-    <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:contentDescription="@null" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="START"
-        android:background="@color/softBlue"
-        android:textColor="@color/black"
-        android:id="@+id/playButton"/>
+
+
 
     <LinearLayout
         android:orientation="horizontal"
@@ -63,6 +52,16 @@
             android:drawableStart="@drawable/ic_howplay"
             android:drawablePadding="10dp"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="START"
+            android:textAlignment="center"
+            android:background="@drawable/round_button"
+            android:layout_marginTop="16dp"
+            android:drawablePadding="10dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/playButton"/>
 
         <Button
             android:id="@+id/aboutDeveloperButton"
