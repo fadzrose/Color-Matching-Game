@@ -4,10 +4,12 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -43,7 +45,7 @@ public class GameActivity2 extends AppCompatActivity {
     private Button resetButton;
     private Button exitButton;
 
-
+    TextView tScore;
 
     private void flipCard(final ImageView card, final int cardIndex, boolean isFront1, boolean isFront2) {
         AnimatorSet flipOut = (AnimatorSet) AnimatorInflater.loadAnimator(GameActivity2.this, R.animator.card_flip_out);
@@ -268,7 +270,7 @@ public class GameActivity2 extends AppCompatActivity {
         resetButton = findViewById(R.id.resetButton);
         exitButton = findViewById(R.id.exitButton);
 
-
+        tScore = findViewById(R.id.score);
 
 
         // Reset Button Logic
@@ -588,6 +590,13 @@ public class GameActivity2 extends AppCompatActivity {
             //add points
             if (turn == 1){
                 playerPoints++;
+                try {
+                    @SuppressLint("StringFormatMatches") String display = String.format(getString(R.string.prompt, playerPoints));
+                    runOnUiThread(() -> tScore.setText(display));
+
+                } catch (Exception e) {
+                    Log.e("GameActivity2", "Error updating score", e);
+                }
 
             }
 
@@ -712,4 +721,5 @@ public class GameActivity2 extends AppCompatActivity {
             default: return null;
         }
     }
+
 }
