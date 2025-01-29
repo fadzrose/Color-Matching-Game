@@ -283,6 +283,56 @@ public class GameActivity2 extends AppCompatActivity {
                 // Logic for resetting the game
                 Toast.makeText(GameActivity2.this, "Game Reset", Toast.LENGTH_SHORT).show();
                 // Reset game state here
+                cardNumber = 1;
+                cardFliped=0;
+                playerPoints = 0;
+
+                try {
+                    @SuppressLint("StringFormatMatches") String display = String.format(getString(R.string.prompt, playerPoints));
+                    runOnUiThread(() -> tScore.setText(display));
+
+                } catch (Exception e) {
+                    Log.e("GameActivity2", "Error updating score", e);
+                }
+
+                c11.setImageResource(R.drawable.card);
+                c12.setImageResource(R.drawable.card);
+                c13.setImageResource(R.drawable.card);
+                c14.setImageResource(R.drawable.card);
+                c21.setImageResource(R.drawable.card);
+                c22.setImageResource(R.drawable.card);
+                c23.setImageResource(R.drawable.card);
+                c24.setImageResource(R.drawable.card);
+                c31.setImageResource(R.drawable.card);
+                c32.setImageResource(R.drawable.card);
+                c33.setImageResource(R.drawable.card);
+                c34.setImageResource(R.drawable.card);
+                c41.setImageResource(R.drawable.card);
+                c42.setImageResource(R.drawable.card);
+                c43.setImageResource(R.drawable.card);
+                c44.setImageResource(R.drawable.card);
+
+                c11.setTag("0");
+                c12.setTag("1");
+                c13.setTag("2");
+                c14.setTag("3");
+                c21.setTag("4");
+                c22.setTag("5");
+                c23.setTag("6");
+                c24.setTag("7");
+                c31.setTag("8");
+                c32.setTag("9");
+                c33.setTag("10");
+                c34.setTag("11");
+                c41.setTag("12");
+                c42.setTag("13");
+                c43.setTag("14");
+                c44.setTag("15");
+
+                frontOfCardResources();
+                Collections.shuffle(Arrays.asList(cardsArray));
+
+                //reset timer here
             }
         });
 
