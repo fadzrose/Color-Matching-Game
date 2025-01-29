@@ -4,6 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:padding="16dp"
     tools:context=".GameActivity2">
 
@@ -167,38 +168,40 @@
         android:layout_marginTop="16dp"
         android:gravity="center">
 
-
-        <Button
-            android:id="@+id/playButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/round_button"
-            android:drawableStart="@drawable/ic_play"
-            android:drawablePadding="10dp"
-            android:contentDescription="Play"/>
-
-
         <Button
             android:id="@+id/resetButton"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
             android:background="@drawable/round_button"
-            android:layout_marginLeft="20dp"
             android:drawableStart="@drawable/ic_reset"
             android:drawablePadding="10dp"
             android:contentDescription="Reset"/>
 
+        <!-- Timer Display -->
+        <TextView
+            android:id="@+id/timerText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="00:00"
+            android:textSize="32sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="16dp"
+            android:gravity="center"/>
 
         <Button
             android:id="@+id/exitButton"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
             android:background="@drawable/round_button"
-            android:layout_marginLeft="20dp"
             android:drawableStart="@drawable/ic_exit"
             android:drawablePadding="10dp"
             android:contentDescription="Exit"/>
     </LinearLayout>
+
 
 
 

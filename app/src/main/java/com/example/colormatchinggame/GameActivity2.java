@@ -47,23 +47,13 @@ public class GameActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_game2);
 
         // Initialize buttons
-        playButton = findViewById(R.id.playButton);
+
         resetButton = findViewById(R.id.resetButton);
         exitButton = findViewById(R.id.exitButton);
         howToPlayButton = findViewById(R.id.howToPlayButton);
         aboutDeveloperButton = findViewById(R.id.aboutDeveloperButton);
 
-        // Play Button Logic
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Logic for starting the game
-                Toast.makeText(GameActivity2.this, "Game Started", Toast.LENGTH_SHORT).show();
-                // Start the GameActivity
-                Intent intent = new Intent(GameActivity2.this, GameActivity2.class);
-                startActivity(intent);
-            }
-        });
+
 
         // Reset Button Logic
         resetButton.setOnClickListener(new View.OnClickListener() {

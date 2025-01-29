@@ -1,129 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".MainActivity">
+
+
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="COLOR MEMORIZING GAME"
+        android:textSize="24sp"
+        android:textColor="#673AB7"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Welcome to Home Activity!"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:contentDescription="@null" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PLAY"
-        android:id="@+id/play"/>
+        android:text="START"
+        android:id="@+id/playButton"/>
 
-    
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_game">
 
-    <!-- Game Title -->
-    <TextView
-        android:id="@+id/gameTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Color Match"
-        android:textSize="36sp"
-        android:textColor="#FFFFFF"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:textStyle="bold"/>
-
-    <!-- Timer Display -->
-    <TextView
-        android:id="@+id/timerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00:00"
-        android:textSize="32sp"
-        android:textColor="#FFFFFF"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/gameTitle"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"/>
-
-    <!-- Game Control Buttons -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/timerText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/playButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/round_button"
-            android:drawableStart="@drawable/ic_play"
-            android:drawablePadding="10dp"
-            android:contentDescription="Play"/>
-
-        <Button
-            android:id="@+id/resetButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/round_button"
-            android:layout_marginLeft="20dp"
-            android:drawableStart="@drawable/ic_reset"
-            android:drawablePadding="10dp"
-            android:contentDescription="Reset"/>
-
-        <Button
-            android:id="@+id/exitButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/round_button"
-            android:layout_marginLeft="20dp"
-            android:drawableStart="@drawable/ic_exit"
-            android:drawablePadding="10dp"
-            android:contentDescription="Exit"/>
-    </LinearLayout>
-
-    <!-- Bottom Controls -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="30dp"
-        android:gravity="end">
-
-        <Button
-            android:id="@+id/howToPlayButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="How to Play"
-            android:background="@drawable/round_button"
-            android:drawableStart="@drawable/ic_howplay"
-            android:drawablePadding="10dp"/>
-
-        <Button
-            android:id="@+id/aboutDeveloperButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About Developer"
-            android:background="@drawable/round_button"
-            android:drawableStart="@drawable/ic_info"
-            android:drawablePadding="10dp"
-            android:layout_marginLeft="20dp"/>
-    </LinearLayout>
-
-</RelativeLayout>
