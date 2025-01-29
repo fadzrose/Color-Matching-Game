@@ -39,11 +39,10 @@ public class GameActivity2 extends AppCompatActivity {
     int playerPoints = 0;
     int cardFliped=0;
 
-    private Button playButton;
+
     private Button resetButton;
     private Button exitButton;
-    private Button howToPlayButton;
-    private Button aboutDeveloperButton;
+
 
 
     private void flipCard(final ImageView card, final int cardIndex, boolean isFront1, boolean isFront2) {
@@ -268,8 +267,7 @@ public class GameActivity2 extends AppCompatActivity {
 
         resetButton = findViewById(R.id.resetButton);
         exitButton = findViewById(R.id.exitButton);
-        howToPlayButton = findViewById(R.id.howToPlayButton);
-        aboutDeveloperButton = findViewById(R.id.aboutDeveloperButton);
+
 
 
 
@@ -294,25 +292,7 @@ public class GameActivity2 extends AppCompatActivity {
             }
         });
 
-        // How to Play Button Logic
-        howToPlayButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Launch How to Play Activity
-                Intent intent = new Intent(GameActivity2.this, HowToPlayActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        // About Developer Button Logic
-        aboutDeveloperButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Launch About Developers Activity
-                Intent intent = new Intent(GameActivity2.this, AboutDevelopersActivity.class);
-                startActivity(intent);
-            }
-        });
 
         //pt = (TextView) findViewById(R.id.point);
 
@@ -617,11 +597,11 @@ public class GameActivity2 extends AppCompatActivity {
             checkEnd();
         } else {
             //flip over
-            cardNumber = 3;
+
             ImageView card1 = getCardImageView(clicked1); // Get the ImageView for clicked1
             ImageView card2 = getCardImageView(clicked2); // Get the ImageView for clicked2
-            flipCardBack(card1, clicked1, cardNumber == 3); // Flip card1
-            flipCardBack(card2, clicked2, cardNumber == 3); // Flip card2
+            flipCardBack(card1, clicked1, true); // Flip card1
+            flipCardBack(card2, clicked2, true); // Flip card2
             cardNumber = 1;
 
 

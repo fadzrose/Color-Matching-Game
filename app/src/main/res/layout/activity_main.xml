@@ -44,6 +44,36 @@
         android:textColor="@color/black"
         android:id="@+id/playButton"/>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/howToPlayButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How to Play"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/ic_howplay"
+            android:drawablePadding="10dp"/>
+
+
+        <Button
+            android:id="@+id/aboutDeveloperButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Developer"
+            android:background="@drawable/round_button"
+            android:drawableStart="@drawable/ic_info"
+            android:drawablePadding="10dp"
+            android:layout_marginLeft="20dp"/>
+    </LinearLayout>
 
 </LinearLayout>
 
