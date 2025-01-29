@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
+    android:background="#286B74"
     tools:ignore="ExtraText">
 
     <TextView
@@ -14,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="COLOR MEMORIZING GAME"
         android:textSize="24sp"
-        android:textColor="#673AB7"
+        android:textColor="#fff"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 

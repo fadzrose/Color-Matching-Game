@@ -27,7 +27,7 @@ import java.util.Collections;
 
 public class GameActivity2 extends AppCompatActivity {
 
-    TextView pt;
+    TextView timer;
     ImageView c11,c12,c13,c14,c21,c22,c23,c24,c31,c32,c33,c34,c41,c42,c43,c44;
     Integer[] cardsArray = {101,102,103,104,105,106,107,108,201,202,203,204,205,206,207,208};
     int image101,image102,image103,image104,image105,image106,image107,image108;
@@ -260,6 +260,7 @@ public class GameActivity2 extends AppCompatActivity {
         });
     }
 
+    //main Code is here
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -271,6 +272,8 @@ public class GameActivity2 extends AppCompatActivity {
         exitButton = findViewById(R.id.exitButton);
 
         tScore = findViewById(R.id.score);
+        timer = findViewById(R.id.timerText);
+
 
 
         // Reset Button Logic
@@ -693,7 +696,10 @@ public class GameActivity2 extends AppCompatActivity {
 
             Toast.makeText(this, "You complete the game!", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ScoreActivity.class);
+            intent.putExtra("point", String.valueOf(playerPoints));
+            intent.putExtra("time", String.valueOf(timer.getText()));
+
                     startActivity(intent);
                     finish();
 
