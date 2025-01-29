@@ -1,5 +1,9 @@
 package com.example.colormatchinggame;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +44,220 @@ public class GameActivity2 extends AppCompatActivity {
     private Button exitButton;
     private Button howToPlayButton;
     private Button aboutDeveloperButton;
+
+
+    private void flipCard(final ImageView card, final int cardIndex, boolean isFront1, boolean isFront2) {
+        AnimatorSet flipOut = (AnimatorSet) AnimatorInflater.loadAnimator(GameActivity2.this, R.animator.card_flip_out);
+        AnimatorSet flipIn = (AnimatorSet) AnimatorInflater.loadAnimator(GameActivity2.this, R.animator.card_flip_in);
+
+        flipOut.setTarget(card);
+        flipIn.setTarget(card);
+
+        flipOut.start();
+        flipOut.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (isFront1) {
+                    // Show the front of the card
+                    switch (cardsArray[cardIndex]) {
+                        case 101:
+                            card.setImageResource(image101);
+                            break;
+                        case 102:
+                            card.setImageResource(image102);
+                            break;
+                        case 103:
+                            card.setImageResource(image103);
+                            break;
+                        case 104:
+                            card.setImageResource(image104);
+                            break;
+                        case 105:
+                            card.setImageResource(image105);
+                            break;
+                        case 106:
+                            card.setImageResource(image106);
+                            break;
+                        case 107:
+                            card.setImageResource(image107);
+                            break;
+                        case 108:
+                            card.setImageResource(image108);
+                            break;
+                        case 201:
+                            card.setImageResource(image201);
+                            break;
+                        case 202:
+                            card.setImageResource(image202);
+                            break;
+                        case 203:
+                            card.setImageResource(image203);
+                            break;
+                        case 204:
+                            card.setImageResource(image204);
+                            break;
+                        case 205:
+                            card.setImageResource(image205);
+                            break;
+                        case 206:
+                            card.setImageResource(image206);
+                            break;
+                        case 207:
+                            card.setImageResource(image207);
+                            break;
+                        case 208:
+                            card.setImageResource(image208);
+                            break;
+                    }
+                } else if (isFront2) {
+                    // Show the front of the card
+                    switch (cardsArray[cardIndex]) {
+                        case 101:
+                            card.setImageResource(image101);
+                            break;
+                        case 102:
+                            card.setImageResource(image102);
+                            break;
+                        case 103:
+                            card.setImageResource(image103);
+                            break;
+                        case 104:
+                            card.setImageResource(image104);
+                            break;
+                        case 105:
+                            card.setImageResource(image105);
+                            break;
+                        case 106:
+                            card.setImageResource(image106);
+                            break;
+                        case 107:
+                            card.setImageResource(image107);
+                            break;
+                        case 108:
+                            card.setImageResource(image108);
+                            break;
+                        case 201:
+                            card.setImageResource(image201);
+                            break;
+                        case 202:
+                            card.setImageResource(image202);
+                            break;
+                        case 203:
+                            card.setImageResource(image203);
+                            break;
+                        case 204:
+                            card.setImageResource(image204);
+                            break;
+                        case 205:
+                            card.setImageResource(image205);
+                            break;
+                        case 206:
+                            card.setImageResource(image206);
+                            break;
+                        case 207:
+                            card.setImageResource(image207);
+                            break;
+                        case 208:
+                            card.setImageResource(image208);
+                            break;
+                    }
+                } else {
+                    //if isFront1 && isFront2 false
+                    // Show the back of the card
+                    card.setImageResource(R.drawable.card);
+                }
+                flipIn.start();
+            }
+        });
+    }
+
+    private void flipCardBack(final ImageView card, final int cardIndex, boolean isBack) {
+        AnimatorSet flipOut = (AnimatorSet) AnimatorInflater.loadAnimator(GameActivity2.this, R.animator.card_flip_out);
+        AnimatorSet flipIn = (AnimatorSet) AnimatorInflater.loadAnimator(GameActivity2.this, R.animator.card_flip_in);
+
+        flipOut.setTarget(card);
+        flipIn.setTarget(card);
+
+        flipOut.start();
+        flipOut.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (isBack) {
+
+                    //if isFront1 && isFront2 false
+                    // Show the back of the card
+                    if (clicked1 == 0) {
+                        c11.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 1) {
+                        c12.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 2) {
+                        c13.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 3) {
+                        c14.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 4) {
+                        c21.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 5) {
+                        c22.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 6) {
+                        c23.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 7) {
+                        c24.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 8) {
+                        c31.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 9) {
+                        c32.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 10) {
+                        c33.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 11) {
+                        c34.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 12) {
+                        c41.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 13) {
+                        c42.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 14) {
+                        c43.setImageResource(R.drawable.card);
+                    } else if (clicked1 == 15) {
+                        c44.setImageResource(R.drawable.card);
+                    }
+
+                    if (clicked2 == 0) {
+                        c11.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 1) {
+                        c12.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 2) {
+                        c13.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 3) {
+                        c14.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 4) {
+                        c21.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 5) {
+                        c22.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 6) {
+                        c23.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 7) {
+                        c24.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 8) {
+                        c31.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 9) {
+                        c32.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 10) {
+                        c33.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 11) {
+                        c34.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 12) {
+                        c41.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 13) {
+                        c42.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 14) {
+                        c43.setImageResource(R.drawable.card);
+                    } else if (clicked2 == 15) {
+                        c44.setImageResource(R.drawable.card);
+                    }
+                }
+                flipIn.start();
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +357,9 @@ public class GameActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int theCard = Integer.parseInt((String) view.getTag());
+
                 doStuff(c11, theCard);
+
             }
         });
         c12.setOnClickListener(new View.OnClickListener() {
@@ -269,39 +489,7 @@ public class GameActivity2 extends AppCompatActivity {
     }
 
     private void doStuff(ImageView c, int card){
-        if(cardsArray[card] == 101){
-            c.setImageResource(image101);
-        } else if(cardsArray[card] == 102){
-            c.setImageResource(image102);
-        } else if(cardsArray[card] == 103){
-            c.setImageResource(image103);
-        } else if(cardsArray[card] == 104){
-            c.setImageResource(image104);
-        } else if(cardsArray[card] == 105){
-            c.setImageResource(image105);
-        } else if(cardsArray[card] == 106){
-            c.setImageResource(image106);
-        } else if(cardsArray[card] == 107){
-            c.setImageResource(image107);
-        } else if(cardsArray[card] == 108){
-            c.setImageResource(image108);
-        } else if(cardsArray[card] == 201){
-            c.setImageResource(image201);
-        } else if(cardsArray[card] == 202){
-            c.setImageResource(image202);
-        } else if(cardsArray[card] == 203){
-            c.setImageResource(image203);
-        } else if(cardsArray[card] == 204){
-            c.setImageResource(image204);
-        } else if(cardsArray[card] == 205){
-            c.setImageResource(image205);
-        } else if(cardsArray[card] == 206){
-            c.setImageResource(image206);
-        } else if(cardsArray[card] == 207){
-            c.setImageResource(image207);
-        } else if(cardsArray[card] == 208){
-            c.setImageResource(image208);
-        }
+        flipCard(c, card, cardNumber == 1,cardNumber == 2);
 
         if(cardNumber == 1){
             firstCard = cardsArray[card];
@@ -418,10 +606,10 @@ public class GameActivity2 extends AppCompatActivity {
             }
 
             //add points
-            /*if (turn == 1){
+            if (turn == 1){
                 playerPoints++;
-                pt.setText(playerPoints);
-            }*/
+
+            }
 
             cardFliped++;
             Toast.makeText(this, "You found a match!", Toast.LENGTH_SHORT).show();
@@ -429,74 +617,14 @@ public class GameActivity2 extends AppCompatActivity {
             checkEnd();
         } else {
             //flip over
+            cardNumber = 3;
+            ImageView card1 = getCardImageView(clicked1); // Get the ImageView for clicked1
+            ImageView card2 = getCardImageView(clicked2); // Get the ImageView for clicked2
+            flipCardBack(card1, clicked1, cardNumber == 3); // Flip card1
+            flipCardBack(card2, clicked2, cardNumber == 3); // Flip card2
+            cardNumber = 1;
 
-                if (clicked1 == 0) {
-                    c11.setImageResource(R.drawable.card);
-                } else if (clicked1 == 1) {
-                    c12.setImageResource(R.drawable.card);
-                } else if (clicked1 == 2) {
-                    c13.setImageResource(R.drawable.card);
-                } else if (clicked1 == 3) {
-                    c14.setImageResource(R.drawable.card);
-                } else if (clicked1 == 4) {
-                    c21.setImageResource(R.drawable.card);
-                } else if (clicked1 == 5) {
-                    c22.setImageResource(R.drawable.card);
-                } else if (clicked1 == 6) {
-                    c23.setImageResource(R.drawable.card);
-                } else if (clicked1 == 7) {
-                    c24.setImageResource(R.drawable.card);
-                } else if (clicked1 == 8) {
-                    c31.setImageResource(R.drawable.card);
-                } else if (clicked1 == 9) {
-                    c32.setImageResource(R.drawable.card);
-                } else if (clicked1 == 10) {
-                    c33.setImageResource(R.drawable.card);
-                } else if (clicked1 == 11) {
-                    c34.setImageResource(R.drawable.card);
-                } else if (clicked1 == 12) {
-                    c41.setImageResource(R.drawable.card);
-                } else if (clicked1 == 13) {
-                    c42.setImageResource(R.drawable.card);
-                } else if (clicked1 == 14) {
-                    c43.setImageResource(R.drawable.card);
-                } else if (clicked1 == 15) {
-                    c44.setImageResource(R.drawable.card);
-                }
 
-                if (clicked2 == 0) {
-                    c11.setImageResource(R.drawable.card);
-                } else if (clicked2 == 1) {
-                    c12.setImageResource(R.drawable.card);
-                } else if (clicked2 == 2) {
-                    c13.setImageResource(R.drawable.card);
-                } else if (clicked2 == 3) {
-                    c14.setImageResource(R.drawable.card);
-                } else if (clicked2 == 4) {
-                    c21.setImageResource(R.drawable.card);
-                } else if (clicked2 == 5) {
-                    c22.setImageResource(R.drawable.card);
-                } else if (clicked2 == 6) {
-                    c23.setImageResource(R.drawable.card);
-                } else if (clicked2 == 7) {
-                    c24.setImageResource(R.drawable.card);
-                } else if (clicked2 == 8) {
-                    c31.setImageResource(R.drawable.card);
-                } else if (clicked2 == 9) {
-                    c32.setImageResource(R.drawable.card);
-                } else if (clicked2 == 10) {
-                    c33.setImageResource(R.drawable.card);
-                } else if (clicked2 == 11) {
-                    c34.setImageResource(R.drawable.card);
-                } else if (clicked2 == 12) {
-                    c41.setImageResource(R.drawable.card);
-                } else if (clicked2 == 13) {
-                    c42.setImageResource(R.drawable.card);
-                } else if (clicked2 == 14) {
-                    c43.setImageResource(R.drawable.card);
-                } else if (clicked2 == 15) {
-                    c44.setImageResource(R.drawable.card);
-                }
             Toast.makeText(this, "Try again!", Toast.LENGTH_SHORT).show();
 
         }
@@ -576,10 +704,32 @@ public class GameActivity2 extends AppCompatActivity {
 
             Toast.makeText(this, "You complete the game!", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(getApplicationContext(), GameActivity2.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
 
+        }
+    }
+
+    private ImageView getCardImageView(int index) {
+        switch (index) {
+            case 0: return c11;
+            case 1: return c12;
+            case 2: return c13;
+            case 3: return c14;
+            case 4: return c21;
+            case 5: return c22;
+            case 6: return c23;
+            case 7: return c24;
+            case 8: return c31;
+            case 9: return c32;
+            case 10: return c33;
+            case 11: return c34;
+            case 12: return c41;
+            case 13: return c42;
+            case 14: return c43;
+            case 15: return c44;
+            default: return null;
         }
     }
 }
