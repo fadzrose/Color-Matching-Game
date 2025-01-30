@@ -13,6 +13,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,8 +47,8 @@ public class GameActivity2 extends AppCompatActivity {
     int cardFliped=0;
 
 
-    private Button resetButton;
-    private Button exitButton;
+    private ImageButton resetButton;
+    private ImageButton exitButton;
     TextView tScore;
     private TextView timerValue;
     private long startTime = 0L, timeInMilliseconds = 0L;
@@ -367,6 +368,11 @@ public class GameActivity2 extends AppCompatActivity {
                 timeInMilliseconds = 0L;
                 gameStarted = false;
                 timerValue.setText("00:00:000");
+
+                Toast.makeText(GameActivity2.this, "Game Started", Toast.LENGTH_SHORT).show();
+                // Start the GameActivity and start the timer
+                startTime = SystemClock.uptimeMillis();
+                customHandler.postDelayed(updateTimerThread, 0);
             }
         });
 
