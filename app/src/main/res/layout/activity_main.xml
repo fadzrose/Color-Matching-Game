@@ -11,25 +11,25 @@
     android:background="@drawable/gradient_bg"
     tools:context=".MainActivity">
 
-
-
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="COLOR MEMORIZING GAME"
+        android:gravity="center"
+        android:text="WELCOME TO COLOR MEMORIZING GAME"
         android:textSize="24sp"
         android:textColor="#fff"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to Home Activity!"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
+    <ListView
+        android:id="@+id/scoreListView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"/>
 
 
 
@@ -37,7 +37,6 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
@@ -53,6 +52,7 @@
             android:drawablePadding="10dp"/>
 
         <Button
+            android:id="@+id/playButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="START"
@@ -60,8 +60,7 @@
             android:background="@drawable/round_button"
             android:layout_marginTop="16dp"
             android:drawablePadding="10dp"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/playButton"/>
+            android:layout_marginLeft="20dp"/>
 
         <Button
             android:id="@+id/aboutDeveloperButton"
@@ -75,5 +74,3 @@
     </LinearLayout>
 
 </LinearLayout>
-
-

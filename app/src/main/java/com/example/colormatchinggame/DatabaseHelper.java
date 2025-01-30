@@ -13,6 +13,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_ID = "id";
     private static final String COL_EMAIL = "email";
     private static final String COL_PASSWORD = "password";
+    private static final String TABLE_LEADERBOARD = "leaderboard";
+    private static final String LEADERBOARD_ID = "leaderboard_id";
+    private static final String COL_ID_FK = "id";
+    public static final String COL_SCORE = "score";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -25,11 +29,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COL_EMAIL + " TEXT UNIQUE, " +
                 COL_PASSWORD + " TEXT)";
         db.execSQL(createTable);
+        String createTable2 = "CREATE TABLE " + TABLE_LEADERBOARD + " (" +
+                LEADERBOARD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_SCORE + " INTEGER NOT NULL, " +
+                COL_ID_FK + " INTEGER, " +
+                "FOREIGN KEY(" + COL_ID_FK + ") REFERENCES " + TABLE_NAME + "(" + COL_ID + "));";
+        db.execSQL(createTable2);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LEADERBOARD);
         onCreate(db);
     }
 
