@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,7 @@ import java.util.Collections;
 
 public class GameActivity2 extends AppCompatActivity {
 
-    TextView timer;
+
     ImageView c11,c12,c13,c14,c21,c22,c23,c24,c31,c32,c33,c34,c41,c42,c43,c44;
     Integer[] cardsArray = {101,102,103,104,105,106,107,108,201,202,203,204,205,206,207,208};
     int image101,image102,image103,image104,image105,image106,image107,image108;
@@ -39,13 +40,35 @@ public class GameActivity2 extends AppCompatActivity {
 
     int turn = 1;
     int playerPoints = 0;
+    int comboStreak = 0;
+    int countScore = 0;
+    double time = 0;
     int cardFliped=0;
 
 
     private Button resetButton;
     private Button exitButton;
-
     TextView tScore;
+    private TextView timerValue;
+    private long startTime = 0L, timeInMilliseconds = 0L;
+    private Handler customHandler = new Handler();
+    private boolean gameStarted = false;
+
+    private Runnable updateTimerThread = new Runnable() {
+        @Override
+        public void run() {
+            timeInMilliseconds = SystemClock.uptimeMillis() - startTime;
+            int secs = (int) (timeInMilliseconds / 1000);
+            int mins = secs / 60;
+            secs = secs % 60;
+            int milliseconds = (int) (timeInMilliseconds % 1000);
+
+            // Display the time
+            timerValue.setText(String.format("%02d", mins) + ":" + String.format("%02d", secs) + ":" + String.format("%03d", milliseconds));
+
+            customHandler.postDelayed(this, 0);
+        }
+    };
 
     private void flipCard(final ImageView card, final int cardIndex, boolean isFront1, boolean isFront2) {
         AnimatorSet flipOut = (AnimatorSet) AnimatorInflater.loadAnimator(GameActivity2.this, R.animator.card_flip_out);
@@ -261,6 +284,7 @@ public class GameActivity2 extends AppCompatActivity {
     }
 
     //main Code is here
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -272,8 +296,13 @@ public class GameActivity2 extends AppCompatActivity {
         exitButton = findViewById(R.id.exitButton);
 
         tScore = findViewById(R.id.score);
-        timer = findViewById(R.id.timerText);
+        timerValue = findViewById(R.id.timerValue);
 
+        //auto start timer
+        Toast.makeText(GameActivity2.this, "Game Started", Toast.LENGTH_SHORT).show();
+        // Start the GameActivity and start the timer
+        startTime = SystemClock.uptimeMillis();
+        customHandler.postDelayed(updateTimerThread, 0);
 
 
         // Reset Button Logic
@@ -333,6 +362,11 @@ public class GameActivity2 extends AppCompatActivity {
                 Collections.shuffle(Arrays.asList(cardsArray));
 
                 //reset timer here
+                customHandler.removeCallbacks(updateTimerThread);
+                startTime = 0L;
+                timeInMilliseconds = 0L;
+                gameStarted = false;
+                timerValue.setText("00:00:000");
             }
         });
 
@@ -643,8 +677,19 @@ public class GameActivity2 extends AppCompatActivity {
             //add points
             if (turn == 1){
                 playerPoints++;
+                comboStreak++;
+                String timeString = timerValue.getText().toString(); // "00:10:691"
+                time = parseTimeToSeconds(timeString); // Convert to double
+
+                //score = (baseScore / time taken)* SpeedMultiplier + (streak * bonus)
+                countScore = (int) Math.round(((10000 / time) * 1.2) + (comboStreak * 50));
+                playerPoints += countScore;
+
                 try {
-                    @SuppressLint("StringFormatMatches") String display = String.format(getString(R.string.prompt, playerPoints));
+                    @SuppressLint("StringFormatMatches")
+                    String display = String.format(getString(R.string.prompt, playerPoints));
+
+                    // Update the UI on the main thread
                     runOnUiThread(() -> tScore.setText(display));
 
                 } catch (Exception e) {
@@ -659,6 +704,7 @@ public class GameActivity2 extends AppCompatActivity {
             checkEnd();
         } else {
             //flip over
+            comboStreak = 0;
 
             ImageView card1 = getCardImageView(clicked1); // Get the ImageView for clicked1
             ImageView card2 = getCardImageView(clicked2); // Get the ImageView for clicked2
@@ -748,7 +794,7 @@ public class GameActivity2 extends AppCompatActivity {
 
             Intent intent = new Intent(getApplicationContext(), ScoreActivity.class);
             intent.putExtra("point", String.valueOf(playerPoints));
-            intent.putExtra("time", String.valueOf(timer.getText()));
+            intent.putExtra("time", String.valueOf(timerValue.getText()));
 
                     startActivity(intent);
                     finish();
@@ -777,5 +823,22 @@ public class GameActivity2 extends AppCompatActivity {
             default: return null;
         }
     }
+    private double parseTimeToSeconds(String timeString) {
+        try {
+            String[] parts = timeString.split(":"); // Split by ":"
+
+            int minutes = Integer.parseInt(parts[0]); // "00"
+            int seconds = Integer.parseInt(parts[1]); // "10"
+            int milliseconds = Integer.parseInt(parts[2]); // "691"
+
+            // Convert to total seconds (e.g., 10.691 seconds)
+            return minutes * 60 + seconds + (milliseconds / 1000.0);
+
+        } catch (Exception e) {
+            Log.e("GameActivity2", "Error parsing time: " + timeString, e);
+            return 1.0; // Avoid division by zero in score calculation
+        }
+    }
+
 
 }
