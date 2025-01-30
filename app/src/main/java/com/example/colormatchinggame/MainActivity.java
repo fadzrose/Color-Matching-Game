@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String PREFS_NAME = "GamePrefs";
@@ -35,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         aboutDeveloperButton = findViewById(R.id.aboutDeveloperButton);
         scoreListView = findViewById(R.id.scoreListView);
 
+        // Load and display scores
+        loadScoreList();
+
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,28 +44,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-// Retrieve and display the score list
-        private void loadScoreList() {
-            SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-            String scores = prefs.getString(SCORE_LIST_KEY, ""); // Get stored scores
-            scoreList = new ArrayList<>();
-
-            if (!scores.isEmpty()) {
-                String[] scoreArray = scores.split(",");
-                scoreList.addAll(Arrays.asList(scoreArray));
-                Collections.reverse(scoreList); // Show latest score first
-            }
-
-            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, scoreList);
-            scoreListView.setAdapter(adapter);
-        }
-
 
         // How to Play Button Logic
         howToPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Launch How to Play Activity
                 Intent intent = new Intent(MainActivity.this, HowToPlayActivity.class);
                 startActivity(intent);
             }
@@ -73,10 +58,25 @@ public class MainActivity extends AppCompatActivity {
         aboutDeveloperButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Launch About Developers Activity
                 Intent intent = new Intent(MainActivity.this, AboutDevelopersActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    // ✅ Moved loadScoreList() outside onCreate()
+    private void loadScoreList() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        String scores = prefs.getString(SCORE_LIST_KEY, ""); // Get stored scores
+        scoreList = new ArrayList<>();
+
+        if (!scores.isEmpty()) {
+            String[] scoreArray = scores.split(",");
+            scoreList.addAll(Arrays.asList(scoreArray));
+            Collections.reverse(scoreList); // Show latest scores first
+        }
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, scoreList);
+        scoreListView.setAdapter(adapter);
     }
 }
