@@ -4,20 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="#00008B">
+    android:background="@drawable/gradient_bg">
 
     <!-- About the Game -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="At Luminous Labs, we believe in the magic of gaming—where every tap, swipe, and click
-        unlocks a new world of adventure, mystery, and excitement. Our passionate team of dreamers and creators
-        is dedicated to crafting mobile games that captivate the imagination and keep players coming back for more.
-        From mind-bending puzzles to heart-pounding action, we blend artistry with technology to design experiences that
-        are as visually stunning as they are engaging. We don’t just make games; we build universes where players can lose themselves,
-        challenge their skills, and have fun along the way. Driven by innovation and a love for storytelling, Luminous Labs is on a mission
-        to redefine what mobile games can be—creating unforgettable moments that connect, inspire, and spark joy in every corner of the world."
-        android:textSize="18sp"
+        android:text="The rapid advancement of technology and the increasing use of digital devices have significantly impacted the cognitive development of the younger generation."
         android:textColor="#FFFFFF"
         android:layout_marginBottom="20dp"/>
 

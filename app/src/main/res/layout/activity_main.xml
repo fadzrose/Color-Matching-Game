@@ -11,6 +11,7 @@
     android:background="@drawable/gradient_bg"
     tools:context=".MainActivity">
 
+    <!--android:background="@drawable/gradient_bg"-->
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
@@ -22,53 +23,63 @@
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
-    <ListView
-        android:id="@+id/scoreListView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#ffffff"
-        android:padding="10dp"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"/>
-
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
-        android:layout_alignParentBottom="true">
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/howToPlayButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="How to Play"
+            android:layout_height="50dp"
             android:background="@drawable/round_button"
             android:drawableStart="@drawable/ic_howplay"
-            android:drawablePadding="10dp"/>
+            android:drawablePadding="10dp"
+            android:text="How to Play" />
 
         <Button
             android:id="@+id/playButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="START"
-            android:textAlignment="center"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
             android:background="@drawable/round_button"
-            android:layout_marginTop="16dp"
             android:drawablePadding="10dp"
-            android:layout_marginLeft="20dp"/>
+            android:text="START"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/aboutDeveloperButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="About Developer"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
             android:background="@drawable/round_button"
-            android:drawableStart="@drawable/ic_info"
+            android:drawableStart="@drawable/ic_howplay"
             android:drawablePadding="10dp"
-            android:layout_marginLeft="20dp"/>
+            android:text="About Developer" />
+
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/scoreListView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/rounded_listview"
+        android:textColor="@color/black"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/ManageNicknames"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:text="Manage Nicknames" />
+
 
 </LinearLayout>

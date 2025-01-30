@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4E8F98"
+    android:background="@drawable/gradient_bg"
     android:padding="16dp"
     tools:context=".GameActivity2">
 
